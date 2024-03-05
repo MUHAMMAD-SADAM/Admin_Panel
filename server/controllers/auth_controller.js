@@ -2,9 +2,10 @@
 
 const home = async (req, res) => {
   try {
-    res.status(200).send("Welcome to the home page");
+    console.log(req.body);
+    res.status(200).json({ message: req.body });
   } catch (error) {
-    res.status(400).send({ msg: "Page not found" });
+    res.status(500).json("Internal Server Error");
   }
 };
 
@@ -12,9 +13,10 @@ const home = async (req, res) => {
 
 const reg = async (req, res) => {
   try {
-    res.status(200).send("Welcome to he Registration page");
+    console.log(req.body);
+    res.status(200).json({ message: req.body });
   } catch (error) {
-    res.status(400).send({ msg: "Page not found" });
+    res.status(500).json("Internal Server Error");
   }
 };
 
