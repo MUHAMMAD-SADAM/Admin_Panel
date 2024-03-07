@@ -29,7 +29,11 @@ const reg = async (req, res) => {
       phone,
       password,
     });
-    res.status(200).json({ msg: UserCreated });
+    res.status(200).json({
+      msg: UserCreated,
+      token: await UserCreated.generateToken(),
+      userid: UserCreated._id.toString(),
+    });
   } catch (error) {
     res.status(500).json("Internal Server Error");
   }
